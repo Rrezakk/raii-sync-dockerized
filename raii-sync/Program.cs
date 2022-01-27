@@ -1,9 +1,11 @@
 var port = Environment.GetEnvironmentVariable("PORT");
+var s = false;
 if (port == null)
 {
+    s = true;
     port = "5001";
 }
-var url = $"https://localhost:{port}";
+var url = $"http{(s?"s":"")}://localhost:{port}";
 Console.WriteLine($"started service on url: {url}");
 var builder = WebApplication.CreateBuilder(args);
 
