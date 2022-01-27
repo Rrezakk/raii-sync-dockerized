@@ -3,6 +3,8 @@ if (port == null)
 {
     port = "5001";
 }
+var url = $"https://localhost:{port}";
+Console.WriteLine($"started service on url: {url}");
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -22,7 +24,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.Urls.Add($"https://localhost:{port}");
+app.Urls.Add(url);
 
 app.UseHttpsRedirection();
 
